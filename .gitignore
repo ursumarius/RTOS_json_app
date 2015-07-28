@@ -1,0 +1,9 @@
+!*.py
+!*.html
+!*.css
+!*.txt
+Blog_course/
+*.yaml
+*.pyc
+*.ico
+*.jpg

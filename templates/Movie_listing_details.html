@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="col-md-2">
+  </div>
+  <div class="col-md-3">
+    <div class="movie_poster_details">
+      <a href="{{listing.IMDB_link}}"><img src="{{listing.Poster_link}}" alt="not found"  class="img-responsive"></a>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="movie_details_extended">
+      <table class="table">
+        <tr>
+        <td>Title:</td> <td>{{listing.Title}}</td>
+        </tr>
+        <tr>
+        <td>Release Date:</td> <td>{{listing.ReleaseDate.strftime("%d %b %Y")}}</td>
+        </tr>
+        <tr>
+        <td>IMDB_link:</td> <td><a href="{{listing.IMDB_link}}">{{listing.IMDB_link}}</a></td>
+        </tr>
+        <tr>
+        <td>Followed:</td> <td>{{listing.Followed}}</td>
+        </tr>
+        <tr>
+        <td>Creators:</td> <td>{{listing.Creators}}</td>
+        </tr>
+        <tr>
+        <td>Actors:</td> <td>{{listing.Actors}}</td>
+        </tr>
+        <tr>
+        <td>Found Torrent:</td> <td>{{listing.FoundTorrent}}</td>
+        </tr>
+        <tr>
+        <td>Last Checked Torrent:</td> <td>{{listing.Last_found_check.strftime("%c")}}</td>
+        </tr>
+        <tr>
+        <td>TorrentLink 1:</td> <td><a href="{{listing.TorrentLink1}}">{{listing.TorrentLink1}}</a></td>
+        </tr>
+        <tr>
+        <td> Added:</td>  <td>{{listing.Created.strftime("%c")}}</td>
+        </tr>
+        
+          <div>
+            <form method="post">
+              <button type="submit" name="checktorrent" value="1" class="btn btn-default">Check Torrent</button>
+              <button type="submit" name="falseflag" value="1" class="btn btn-default">False Flag</button>
+            </form>
+          </div>
+          <div class="stop_following_btn">
+          <form method="get" action="/RemoveMovie/{{listing.key().id()}}" >
+            <button type="submit" class="btn btn-default">Stop Following</button>
+          </form>
+          </div>
+        
+      </table>
+    </div>
+  </div>
+  <div class="col-md-3">
+  </div>
+
+  
+{% endblock %}
